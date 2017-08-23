@@ -1,2 +1,2 @@
 # NativeScript-Playground
-Learning NativeScript for better mobile experience.
+Learning NativeScript for a better mobile experience.
