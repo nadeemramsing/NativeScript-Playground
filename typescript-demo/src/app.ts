@@ -43,15 +43,24 @@ sing(1);
 
 /* ---------------------------------------------------------------------------------------------------------------------- */
 
-//INTERFACE ~Object
+//INTERFACE ~Object (vs. abstract: can include implementation details)
 //Used to type-check whether an OBJECT fits a certain structure.
 //We can name a specific combination of variables, making sure that they will always go together.
+abstract class Drink {
+    swallow(): string {
+        return "I am swallowing"
+    }
+
+    abstract poop(): void
+}
 
 // Here we define our Food interface, its properties, and their types.
 interface Food {
     name: string;
     calories: number;
 }
+
+
 
 // We tell our function to expect an object that fulfills the Food interface. 
 // This way we know that the properties we need will ALWAYS be available.
@@ -125,6 +134,7 @@ class HappyMeal extends Menu {
     // Just like the properties, methods are inherited from the parent.
     // However, we want to override the list() function so we redefine it.
     list(): void {
+        super.list("Fried rice.");
         console.log("Our special menu for children:");
         for (var i = 0; i < this.items.length; i++) {
             console.log(this.items[i]);
