@@ -1,5 +1,5 @@
 # NativeScript-Playground
-Learning NativeScript for a better mobile experience.
+Learning NativeScript for a better mobile experience.<br />
 <br />
 Quick setup: https://docs.nativescript.org/start/quick-setup<br />
 Running<br /> 
@@ -24,7 +24,7 @@ Running app:<br />
 cmd: tns run android (for debugging, use tns debug android)<br />
 Error: Cannot find connected devices ~adb <br />
 Solution: Setup emulator (use Visual Studio Emulator for Android or Genymotion (https://github.com/NativeScript/nativescript-cli/issues/325))<br />
-cmd: 
+cmd: <br />
 adb devices lists list of connected devices<br />
 adb kill-server kills server<br />
 adb start-server starts server<br />
