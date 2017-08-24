@@ -5,17 +5,12 @@ Learning NativeScript for a better mobile experience.<br />
 Running<br /> 
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://www.nativescript.org/setup/win'))"<br />
 into cmd installs iOS and Android Requirements (including Android SDK)<br />
-<br />
-##### Advanced setup:
-https://docs.nativescript.org/start/ns-setup-win<br />
-<br />
-##### Choco install arguments:
-https://github.com/chocolatey/choco/wiki/CommandsInstall#installarguments<br />
-<br />
+
+##### Advanced setup: https://docs.nativescript.org/start/ns-setup-win
+##### Choco install arguments: https://github.com/chocolatey/choco/wiki/CommandsInstall#installarguments
 -Use Packages.config to install several packages and define their id, version, SOURCE, etc... <br />
 <br />
 -Source => PATH on PC can be used?<br />
-<br />
 ##### Issues:
 -ANDROID_HOME environment variable was not being found (had to rename "android-sdk" to "sdk")<br />
 <br />
