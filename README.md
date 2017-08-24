@@ -2,9 +2,11 @@
 Learning NativeScript for a better mobile experience.<br />
 <br />
 Quick setup: https://docs.nativescript.org/start/quick-setup<br />
-Running<br /> 
+<br />
+Running:<br /> 
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://www.nativescript.org/setup/win'))"<br />
 into cmd installs iOS and Android Requirements (including Android SDK)<br />
+<br />
 Advanced setup: https://docs.nativescript.org/start/ns-setup-win<br />
 Choco install arguments: https://github.com/chocolatey/choco/wiki/CommandsInstall#installarguments<br />
 -Use Packages.config to install several packages and define their id, version, SOURCE, etc... <br />
