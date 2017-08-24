@@ -43,6 +43,33 @@ sing(1);
 
 /* ---------------------------------------------------------------------------------------------------------------------- */
 
-//
+//INTERFACE ~Object
+//Used to type-check whether an OBJECT fits a certain structure.
+//We can name a specific combination of variables, making sure that they will always go together.
+
+// Here we define our Food interface, its properties, and their types.
+interface Food {
+    name: string;
+    calories: number;
+}
+
+// We tell our function to expect an object that fulfills the Food interface. 
+// This way we know that the properties we need will ALWAYS be available.
+function eat(food: Food): void{
+  console.log("Our " + food.name + " has " + food.calories + " calories.");
+}
+
+//All properties defined in Interface MUST exists and Type MUST match.
+var ice_cream = {
+  calories: "200",
+  age: 2
+}
+
+eat(ice_cream);
+
+/* ---------------------------------------------------------------------------------------------------------------------- */
+
+//CLASSES & OOP
+
 
 /* ---------------------------------------------------------------------------------------------------------------------- */
