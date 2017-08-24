@@ -13,7 +13,7 @@ var burger: string = 'hamburger',
     tasty: boolean = true;
 
 //Enum: giving more friendly names to sets of numeric values
-enum Color {Red = 1, Blue = 10, Yellow = 100, Green = 1000};
+enum Color { Red = 1, Blue = 10, Yellow = 100, Green = 1000 };
 let color: Color;
 color = Color.Green;
 
@@ -55,21 +55,92 @@ interface Food {
 
 // We tell our function to expect an object that fulfills the Food interface. 
 // This way we know that the properties we need will ALWAYS be available.
-function eat(food: Food): void{
-  console.log("Our " + food.name + " has " + food.calories + " calories.");
+function eat(food: Food): void {
+    console.log("Our " + food.name + " has " + food.calories + " calories.");
 }
 
 //All properties defined in Interface MUST exists and Type MUST match.
 var ice_cream = {
-  calories: "200",
-  age: 2
+    calories: "200",
+    age: 2
 }
 
 eat(ice_cream);
 
 /* ---------------------------------------------------------------------------------------------------------------------- */
 
-//CLASSES & OOP
+//OOP: CLASS
+//TypeScript offers a class system that is very similar to the one in these languages, including 
+//inheritance, abstract classes, interface implementations, setters/getters, and more.
 
+class Menu {
+    // Our properties:
+    // By default they are public, but can also be private or protected.
+    private items: Array<string>;  // The items in the menu, an array of strings.
+    protected pages: number;         // How many pages will the menu be, a number.
+
+    //private: no class can access it except itself
+    //protected: its children can access it
+
+    // A straightforward constructor. 
+    constructor(item_list: Array<string>, total_pages: number) {
+        // The this keyword is mandatory.
+        this.items = item_list;
+        this.pages = total_pages;
+    }
+
+    // Methods
+    list(menuName: string): void {
+        console.log("Our menu" + menuName + "for today:");
+        for (var i = 0; i < this.items.length; i++) {
+            console.log(this.items[i]);
+        }
+    }
+
+    helloWorld(): string {
+        return "Hello, world";
+    }
+
+}
+
+// Create a new instance of the Menu class.
+var sundayMenu = new Menu(["pancakes", "waffles", "orange juice"], 1);
+
+// Call the list method.
+sundayMenu.list("Wrap Agneau");
+sundayMenu.helloWorld();
+
+/* ---------------------------------------------------------------------------------------------------------------------- */
+
+//OOP: INHERITANCE
+class HappyMeal extends Menu {
+    // Properties are inherited
+
+    // A new constructor has to be defined.
+    constructor(item_list: Array<string>, total_pages: number) {
+        // To automatically copy it we can call super() - a reference to the parent's constructor.
+        super(item_list, total_pages);
+    }
+
+    // Just like the properties, methods are inherited from the parent.
+    // However, we want to override the list() function so we redefine it.
+    list(): void {
+        console.log("Our special menu for children:");
+        for (var i = 0; i < this.items.length; i++) {
+            console.log(this.items[i]);
+        }
+
+    }
+
+    static display(): void {
+        console.log("Hello, World.");
+    }
+}
+
+// Create a new instance of the HappyMeal class.
+var menu_for_children = new HappyMeal(["candy", "drink", "toy"], 1);
+
+// This time the log message will begin with the special introduction.
+menu_for_children.list();
 
 /* ---------------------------------------------------------------------------------------------------------------------- */
