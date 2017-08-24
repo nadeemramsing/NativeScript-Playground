@@ -1,28 +1,27 @@
 # NativeScript-Playground
 Learning NativeScript for a better mobile experience.<br />
 <br />
-### Quick setup: https://docs.nativescript.org/start/quick-setup<br />
+### Quick setup: https://docs.nativescript.org/start/quick-setup
 Running<br /> 
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://www.nativescript.org/setup/win'))"<br />
 into cmd installs iOS and Android Requirements (including Android SDK)<br />
 <br />
-##### Advanced setup: <br />
+##### Advanced setup:
 https://docs.nativescript.org/start/ns-setup-win<br />
 <br />
-##### Choco install arguments: <br />
+##### Choco install arguments:
 https://github.com/chocolatey/choco/wiki/CommandsInstall#installarguments<br />
 <br />
 -Use Packages.config to install several packages and define their id, version, SOURCE, etc... <br />
 <br />
 -Source => PATH on PC can be used?<br />
 <br />
-##### Issues:<br />
-<br />
+##### Issues:
 -ANDROID_HOME environment variable was not being found (had to rename "android-sdk" to "sdk")<br />
 <br />
 Use tns doctor to test; IF "no issues detected" THEN installation complete.<br />
 <br />
-### Creating app: <br />
+### Creating app:
 -Done using NativeScript CLI<br />
 <br />
 -"tns create" used<br />
@@ -33,18 +32,17 @@ Other templates can be found here: https://github.com/NativeScript/NativeScript/
 <br />
 -Among the Node modules installed are: @angular, nativescript-angular, tns-core-modules, typescript, rxjs<br />
 <br />
-### Running app:<br />
-##### cmd: <br />
+### Running app:
+##### cmd:
 tns run android (for debugging, use tns debug android)<br />
 <br />
-##### Error: <br />
+##### Error:
 Cannot find connected devices ~adb <br />
 <br />
-##### Solution: <br />
+##### Solution:
 Setup emulator (use Visual Studio Emulator for Android or Genymotion (https://github.com/NativeScript/nativescript-cli/issues/325))<br />
 <br />
-##### cmd: <br />
-<br />
+##### cmd:
 adb devices lists list of connected devices<br />
 <br />
 adb kill-server kills server<br />
