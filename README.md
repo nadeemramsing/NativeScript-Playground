@@ -30,13 +30,10 @@ Other templates can be found here: https://github.com/NativeScript/NativeScript/
 ### Running app:
 ##### cmd:
 tns run android (for debugging, use tns debug android)<br />
-<br />
 ##### Error:
 Cannot find connected devices ~adb <br />
-<br />
 ##### Solution:
 Setup emulator (use Visual Studio Emulator for Android or Genymotion (https://github.com/NativeScript/nativescript-cli/issues/325))<br />
-<br />
 ##### cmd:
 adb devices lists list of connected devices<br />
 <br />
