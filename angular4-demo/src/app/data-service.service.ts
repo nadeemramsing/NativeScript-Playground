@@ -8,7 +8,7 @@ export class DataServiceService {
   private data: Observable<any>; 
   private dataClient;
 
-  constructor(http: Http, httpClient: HttpClient) {
+  constructor(private http: Http, private httpClient: HttpClient) {
     this.data = http.get("https://jsonplaceholder.typicode.com/posts");
     this.dataClient = httpClient.get("https://jsonplaceholder.typicode.com/posts");
 
