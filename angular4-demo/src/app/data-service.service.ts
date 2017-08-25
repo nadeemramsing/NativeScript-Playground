@@ -10,7 +10,7 @@ export class DataServiceService {
 
   constructor(private http: Http, private httpClient: HttpClient) {
     this.data = http.get("https://jsonplaceholder.typicode.com/posts");
-    this.dataClient = httpClient.get("https://jsonplaceholder.typicode.com/posts");
+    this.dataClient = httpClient.get("https://jsonplaceholder.typicode.com/posts", {observe: 'response'}); //now displays everything, not body only
 
     this.data.subscribe(response => console.log(JSON.parse(response._body))); //returns response with headers, ok, status, statusText, url, _body
     this.dataClient.subscribe(body => console.log(body)); //returns value directly
