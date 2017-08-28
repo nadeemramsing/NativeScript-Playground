@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Output, EventEmitter } from '@angular/core';
 import { OnInit } from '@angular/core';
 
 import { DataServiceService } from './data-service.service';
@@ -11,7 +10,6 @@ import { DataServiceService } from './data-service.service';
   providers: [DataServiceService]
 })
 export class AppComponent implements OnInit {
-  @Output() printClicked = new EventEmitter();
 
   public title: string;
   //private color: string; //Warning: Identifier 'color' refers to a private member of the component
@@ -41,7 +39,6 @@ export class AppComponent implements OnInit {
 
   public print = function (event) {
     debugger;
-    this.printClicked.emit("print() clicked.");
     console.log("My name is " + this.name);
   }
 
