@@ -5,7 +5,8 @@ import { SearchComponentComponent } from './search-component/search-component.co
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: AppComponent },
-    { path: 'search', component: SearchComponentComponent },
+    { path: 'search1', component: SearchComponentComponent },
+    { path: 'search2/:name', component: SearchComponentComponent },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }

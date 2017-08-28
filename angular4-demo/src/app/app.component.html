@@ -3,9 +3,10 @@
   <h1>
     <button routerLink="/home">Go to Home</button>
     <br>
-    <button routerLink="/search">Go to Search</button>
+    <button routerLink="/search1" [queryParams]="{name: name}">Go to Search (Query Params used)</button>
     <br>
-    <button [routerLink]="['/search']">Go to Search</button><!-- Alternative way -->
+    <!-- Alternative way -->
+    <button [routerLink]="['/search2', name]" >Go to Search (Route Params used)</button>
     <br>  
     <router-outlet></router-outlet>
     <br>  
