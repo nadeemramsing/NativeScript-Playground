@@ -9,12 +9,14 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { routes } from './app.routers';
 import { SearchComponentComponent } from './search-component/search-component.component';
+import { ViewComponent } from './view/view.component';
 /* import { DataServiceService } from './data-service.service'; */ //If imported in Module, service will be available in all of its components
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponentComponent
+    SearchComponentComponent,
+    ViewComponent
   ],
   imports: [
     BrowserModule,
