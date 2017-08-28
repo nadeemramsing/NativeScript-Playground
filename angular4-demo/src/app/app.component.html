@@ -25,10 +25,13 @@
       //Changes from controller reflects in view*** 
     -->
     <button [style.color]="color" (click)="print($event)">Console my name</button>
+
+    <!-- Styling -->
     <button [style.color]="color" (click)="getData()">Get Data</button>
     <button [ngStyle]="{'font-weight': !showList ? 'bolder' : ''}" (click)="showList = false">Show Whole Body</button>
     <button [ngClass]="{bold: showList}" (click)="showList = true">Show List</button>
     <br>
+    
     <div [hidden]="showList">{{dataString}}</div>
     <!-- ~ng-hide -->
     <ul *ngIf="showList">
