@@ -14,18 +14,18 @@
     <!-- One Way: Event binding
       //view -> controller
      -->
+     <input (input)="name = $event.target.value">
+     <br>
+     <!-- One Way: Property binding
+      //controller -> view
+      
+      //Changes from view does not reflect in controller
+      //Changes from controller reflects in view*** 
+    -->
     <input value="{{name}}">
     <br>
     <input bind-value="name">
     <br>
-    <input (input)="name = $event.target.value">
-    <br>
-    <!-- One Way: Property binding
-      //controller -> view
-
-      //Changes from view does not reflect in controller
-      //Changes from controller reflects in view*** 
-    -->
     <button [style.color]="color" (click)="print($event)">Console my name</button>
 
     <!-- Styling -->
