@@ -9,6 +9,8 @@
     <br>
     <input [value]="name" (input)="name = $event.target.value">
     <br>
+    <input [(ngModel)]="name"> <!-- Need to import FormsModule to make it work this way -->
+    <br>
     <!-- One Way: Event binding
       //view -> controller
      -->
