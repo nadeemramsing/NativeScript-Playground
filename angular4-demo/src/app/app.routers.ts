@@ -7,6 +7,7 @@ export const routes: Routes = [
     { path: 'home', component: AppComponent },
     { path: 'search1', component: SearchComponentComponent },
     { path: 'search2/:name', component: SearchComponentComponent },
+    //IF route params used, it must always be provided before activating route; ELSE, won't be activated.
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
