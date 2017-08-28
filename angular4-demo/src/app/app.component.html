@@ -1,6 +1,14 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
+    <button routerLink="/home">Go to Home</button>
+    <br>
+    <button routerLink="/search">Go to Search</button>
+    <br>
+    <button [routerLink]="['/search']">Go to Search</button><!-- Alternative way -->
+    <br>  
+    <router-outlet></router-outlet>
+    <br>  
     Welcome to {{title}}!
   </h1>
   <h2>
