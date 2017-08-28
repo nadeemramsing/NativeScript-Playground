@@ -5,6 +5,8 @@
   </h1>
   <h2>
     Hello, {{name}}.
+    <br>
+    Hello, {{returnName()}}. <!-- Runs more than 10 times (~13) -->
     <!-- Two-way binding -->
     <br>
     <input [value]="name" (input)="name = $event.target.value">

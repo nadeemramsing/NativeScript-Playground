@@ -45,6 +45,10 @@ export class AppComponent implements OnInit {
     console.log("My name is " + this.name);
   }
 
+  public returnName(): string {
+    return this.name;
+  }
+
   ngOnInit() {
     console.log("Component initialization completed.");
 
