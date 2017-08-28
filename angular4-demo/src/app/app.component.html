@@ -12,6 +12,10 @@
     <!-- One Way: Event binding
       //view -> controller
      -->
+    <input value="{{name}}">
+    <br>
+    <input bind-value="name">
+    <br>
     <input (input)="name = $event.target.value">
     <br>
     <!-- One Way: Property binding
@@ -20,16 +24,13 @@
       //Changes from view does not reflect in controller
       //Changes from controller reflects in view*** 
     -->
-    <input value="{{name}}">
-    <br>
-    <input bind-value="name">
-    <br>
     <button [style.color]="color" (click)="print($event)">Console my name</button>
     <button [style.color]="color" (click)="getData()">Get Data</button>
-    <button [style.color]="color" (click)="showList = false">Show Whole Body</button>
-    <button [style.color]="color" (click)="showList = true">Show List</button>
+    <button [ngStyle]="{'font-weight': !showList ? 'bolder' : ''}" (click)="showList = false">Show Whole Body</button>
+    <button [ngClass]="{bold: showList}" (click)="showList = true">Show List</button>
     <br>
-    <div [hidden]="showList">{{dataString}}</div><!-- ~ng-hide -->
+    <div [hidden]="showList">{{dataString}}</div>
+    <!-- ~ng-hide -->
     <ul *ngIf="showList">
       <li *ngFor="let item of data">{{item.title}}</li>
     </ul>
