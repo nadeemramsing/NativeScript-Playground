@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { OnInit } from '@angular/core';
 
 import { DataServiceService } from './data-service.service';
@@ -10,6 +10,8 @@ import { DataServiceService } from './data-service.service';
   providers: [DataServiceService]
 })
 export class AppComponent implements OnInit {
+  @Input()
+  age: Number;
 
   public title: string;
   //private color: string; //Warning: Identifier 'color' refers to a private member of the component
@@ -44,6 +46,10 @@ export class AppComponent implements OnInit {
 
   public returnName(): string {
     return this.name;
+  }
+
+  public printAge(message) {
+    this.age = message;
   }
 
   ngOnInit() {
