@@ -15,3 +15,14 @@
 .toggle-button {
     margin: 0.5%;
 }
+
+/* .active:hover {
+    color: #252525;
+    font-weight: bolder;
+} */
+
+.active {
+    color: #252525;
+    font-size: 18px;
+    font-weight: bolder;
+}
