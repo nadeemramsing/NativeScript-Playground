@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,6 +10,8 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './components/list/list.component';
 import { FormComponent } from './components/form/form.component';
 import { TableComponent } from './components/table/table.component';
+
+import { routes } from './app.routers';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,8 @@ import { TableComponent } from './components/table/table.component';
     BrowserModule,
     BrowserAnimationsModule,
     MyMaterialsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    RouterModule.forRoot(routes, {useHash: true})
   ],
   providers: [],
   bootstrap: [AppComponent]
