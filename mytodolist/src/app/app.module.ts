@@ -6,10 +6,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyMaterialsModule } from './mymaterials/mymaterials.module';
 
 import { AppComponent } from './app.component';
+import { ListComponent } from './components/list/list.component';
+import { FormComponent } from './components/form/form.component';
+import { TableComponent } from './components/table/table.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListComponent,
+    FormComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
