@@ -1,0 +1,17 @@
+.sidenav-container {
+    height: 90vh;
+}
+
+.sidenav-container md-sidenav {
+    min-width: 20vw;
+}
+
+.sidenav-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-button {
+    margin: 0.5%;
+}

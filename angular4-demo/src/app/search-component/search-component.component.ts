@@ -14,7 +14,7 @@ export class SearchComponentComponent implements OnInit {
 
   public back = function (): void {
     //this.router.navigateByUrl('home', { queryParams: { test: 'test' } });
-    this.router.navigate(['home'], { queryParams: { test: 'test' } }, { QueryParamsHandling: 'merge' }); //or preserve (strategy to keep previous params values)
+    this.router.navigate([''], { queryParams: { test: 'test' } }, { QueryParamsHandling: 'merge' }); //or preserve (strategy to keep previous params values)
     //BOTH WORKS
   }
 

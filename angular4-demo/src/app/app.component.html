@@ -8,12 +8,12 @@
     <br>  
     <button [routerLink]="['/view']" >Go to View</button>
     <br>  
-    <router-outlet></router-outlet>
+    <router-outlet></router-outlet> <!-- named router-outlet works with children only -->
     <br>  
     Welcome to {{title}}!
   </h1>
   <h2>
-    <app-view [name]="name" (ageEvent)="printAge($event)"></app-view><!-- ageEvent must be in CHILD-->
+    <app-view [name]="name" (ageEvent)="age = $event"></app-view><!-- ageEvent must be in CHILD-->
     My age is {{age}}.
     <!-- Hello, {{name}}. -->
     <br>

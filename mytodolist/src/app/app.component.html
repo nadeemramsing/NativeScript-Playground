@@ -1,0 +1,20 @@
+<md-sidenav-container class="sidenav-container">
+  <md-sidenav #sidenav mode="side" align="end">
+    <!-- mode: over | push | side -->
+    <md-nav-list>
+      <a md-list-item href="todolist">List</a>
+      <md-divider></md-divider>
+      <a md-list-item href="form">Form</a>
+      <md-divider></md-divider>
+      <a md-list-item href="table">Table</a>
+      <md-divider></md-divider>
+    </md-nav-list>
+  </md-sidenav>
+  <div fxLayout="row" fxLayoutAlign="end start">
+    <button class="toggle-button" md-fab (click)="sidenav.toggle()">
+      <md-icon *ngIf="!sidenav.opened">chevron_left</md-icon>
+      <md-icon *ngIf="sidenav.opened">chevron_right</md-icon>
+    </button>
+  </div>
+
+</md-sidenav-container>
