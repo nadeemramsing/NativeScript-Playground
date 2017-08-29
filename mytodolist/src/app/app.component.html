@@ -2,11 +2,12 @@
   <md-sidenav #sidenav mode="side" align="end">
     <!-- mode: over | push | side -->
     <md-nav-list>
-      <a md-list-item [routerLink]="[{outlets: {left:'list'}}]">List</a>
+      <a md-list-item [routerLink]="[{outlets: {left:'list'}}]" routerLinkActive="active">List</a>
+      <!-- routerLinkActive: Lets you add a CSS class to an element when the link's route becomes active.-->
       <md-divider></md-divider>
-      <a md-list-item [routerLink]="[{outlets: {left:'form'}}]">Form</a>
+      <a md-list-item [routerLink]="[{outlets: {left:'form'}}]" routerLinkActive="active">Form</a>
       <md-divider></md-divider>
-      <a md-list-item [routerLink]="[{outlets: {left:'table'}}]">Table</a>
+      <a md-list-item [routerLink]="[{outlets: {left:'table'}}]" routerLinkActive="active">Table</a>
       <md-divider></md-divider>
     </md-nav-list>
   </md-sidenav>
