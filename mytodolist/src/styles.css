@@ -1,7 +1,8 @@
 /* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
-@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
 
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
 body {
-    padding: 2%;
-    background:lightgray;
+  padding: 0;
+  margin: 0;
+  background: lightgray;
 }
