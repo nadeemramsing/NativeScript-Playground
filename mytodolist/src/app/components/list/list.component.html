@@ -18,8 +18,8 @@
             {{t.desc}}
           </span>
 
-          <md-input-container fxFlex="85" *ngIf="t.isEdit">
-            <input mdInput [(ngModel)]="t.desc" name="taskDesc">
+          <md-input-container fxFlex="85" [hidden]="!t.isEdit">
+            <input mdInput [(ngModel)]="t.desc" [ngModelOptions]="{standalone: true}">
             <!-- To use [(ngModel)], MUST import FormsModule -->
             <!-- When using [(ngModel)] in form, must either
             1) set name="taskDesc" => connected to form in which it is.
@@ -28,10 +28,10 @@
           </md-input-container>
 
           <div fxFlex="10" fxLayout="row" fxLayoutAlign="space-around center">
-            <button type="button" class="edit-button" *ngIf="!t.isEdit" md-mini-fab (click)="t.isEdit = true"> 
+            <button type="button" class="edit-button" [hidden]="t.isEdit" md-mini-fab (click)="t.isEdit = true"> 
               <md-icon>edit</md-icon>
             </button>
-            <button type="button" class="tick-button" *ngIf="t.isEdit" md-mini-fab (click)="editTask(t); t.isEdit = false"> 
+            <button type="button" class="tick-button" [hidden]="!t.isEdit" md-mini-fab (click)="editTask(t); t.isEdit = false"> 
               <md-icon>done</md-icon>
             </button>
             <button type="button" class="delete-button" md-mini-fab (click)="deleteTask(t)"> 

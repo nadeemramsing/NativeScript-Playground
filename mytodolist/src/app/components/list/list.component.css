@@ -35,3 +35,7 @@ md-divider {
   min-width: 100%;
   border-top-width: 5px;
 }
+
+[hidden] {
+  display: none;
+}
