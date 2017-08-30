@@ -1,3 +1,22 @@
-<p>
-  list works!
-</p>
+<form fxLayout="column" fxLayoutAlign="center center">
+  <md-input-container class="input-container">
+    <!-- material2 2.0.0-beta.10: md-input-container renamed to md-form-field (while still being backwards compatible) -->
+    <!-- Current version: 2.0.0-beta.8 => md-form-field won't work -->
+    <input mdInput #task placeholder="Enter task">
+  </md-input-container>
+
+  <button type="button" class="add-button" md-fab (click)="addTask(task.value)"> 
+      <md-icon>add</md-icon>
+  </button>
+
+  <md-list class="list" fxLayout="column" fxLayoutAlign="center center">
+
+    <md-list-item *ngFor="let t of list"> {{t.desc}}</md-list-item>
+
+    <md-list-item> {{task.value}} </md-list-item>
+    <md-divider></md-divider>
+    <md-list-item> Salt </md-list-item>
+    <md-divider></md-divider>
+    <md-list-item> Paprika </md-list-item>
+  </md-list>
+</form>

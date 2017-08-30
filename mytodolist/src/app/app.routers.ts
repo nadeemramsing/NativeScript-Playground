@@ -9,7 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 export const routes: Routes = [
 
     //Using children
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: '', redirectTo: 'home/list', pathMatch: 'prefix' },
     {
         path: 'home', component: HomeComponent, children: [
             { path: 'list', component: ListComponent },
