@@ -11,7 +11,7 @@
 
   <md-list class="list" fxLayout="column" fxLayoutAlign="start center">
 
-    <ng-container *ngFor="let t of list; let i = index">
+    <ng-container *ngFor="let t of list | async; let i = index">
       <md-list-item> {{t.desc}}</md-list-item>
       <md-divider *ngIf="i !== list.length  - 1"></md-divider>
     </ng-container>
