@@ -12,13 +12,15 @@ import { FormComponent } from './components/form/form.component';
 import { TableComponent } from './components/table/table.component';
 
 import { routes } from './app.routers';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
     FormComponent,
-    TableComponent
+    TableComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
