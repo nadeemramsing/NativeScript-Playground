@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+  protected title: String;
+  protected description: String;
+  protected date: Date;
+  protected isDone: Boolean;
 
   constructor() { }
 

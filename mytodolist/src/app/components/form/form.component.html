@@ -1,3 +1,26 @@
-<p>
-  form works!
-</p>
+<form name="formForm" fxLayout="column" fxLayoutAlign="center center">
+
+  <md-input-container class="input-container">
+    <input mdInput [(ngModel)]="title" placeholder="Enter a title" name="title">
+  </md-input-container>
+
+  <md-input-container class="input-container">
+    <input mdInput [(ngModel)]="description" placeholder="Enter a description" name="description">
+  </md-input-container>
+
+  <div class="input-container" fxLayout="row" fxLayoutAlign="space-between center">
+    <md-input-container>
+      <input mdInput [mdDatepicker]="picker" placeholder="Choose a date">
+      <!-- <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle> -->
+      <!-- Works in new version 2.0.0-beta.10 -->
+      <button mdSuffix [mdDatepickerToggle]="picker"></button>
+      <md-datepicker #picker></md-datepicker>
+    </md-input-container>
+    
+      <section>
+        <md-checkbox [(ngModel)]="isDone">Done</md-checkbox>
+      </section>
+  </div>
+
+
+</form>
