@@ -10,15 +10,15 @@
 
   <div class="input-container" fxLayout="row" fxLayoutAlign="space-between center">
     <md-input-container>
-      <input mdInput [mdDatepicker]="picker" placeholder="Choose a date">
+      <input mdInput [mdDatepicker]="date" placeholder="Choose a date">
       <!-- <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle> -->
       <!-- Works in new version 2.0.0-beta.10 -->
-      <button mdSuffix [mdDatepickerToggle]="picker"></button>
-      <md-datepicker #picker></md-datepicker>
+      <button mdSuffix [mdDatepickerToggle]="date"></button>
+      <md-datepicker #date></md-datepicker>
     </md-input-container>
-    
+
       <section>
-        <md-checkbox [(ngModel)]="isDone">Done</md-checkbox>
+        <md-checkbox [(ngModel)]="isDone" name="isDone">Done</md-checkbox>
       </section>
   </div>
 
