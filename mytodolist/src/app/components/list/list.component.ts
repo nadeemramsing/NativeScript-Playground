@@ -10,14 +10,21 @@ import { SharedService } from './../../services/shared.service';
   providers: [SharedService]
 })
 export class ListComponent implements OnInit {
-  /* @ViewChild('task') */
+  /* @ViewChild('task') */ //Will work when two-way binded (using [(ngModel)] or (input)="task = $event.target.value")
   protected task;
   protected list: Observable<Array<Object>>;
   protected listLength: number;
 
   constructor(private sharedService: SharedService) {
     this.list = this.sharedService.list;
-    this.list.subscribe(res => { this.listLength = res.length });
+    this.list.subscribe(res => {
+      this.listLength = res.length;
+
+      //init task
+      for (var index in res) {
+        res[index]['isEdit'] = false;
+      }
+    });
   }
 
   public addTask(desc): void {
@@ -35,6 +42,10 @@ export class ListComponent implements OnInit {
     this.sharedService.deleteTask(task);
   }
 
-  ngOnInit() { }
+  public editTask(task): void {
+    this.deleteTask(task);
+    this.addTask(task.desc);
+  }
 
+  ngOnInit() { }
 }

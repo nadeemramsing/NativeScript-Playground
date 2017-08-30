@@ -6,7 +6,12 @@ export class SharedService {
   //Read (SharedService.currentList.subscribe(value => ...))
   //Update (SharedService.changeList(newList))
 
-  private listArray: Array<Object> = [];
+  private listArray: Array<Object> = [{
+    desc: "Rendez-vous"
+  },
+  {
+    desc: "Research on Angular4"
+  }];
   private listSource = new BehaviorSubject<Array<Object>>(this.listArray); //Initial array
   public readonly list = this.listSource.asObservable();
 
