@@ -13,7 +13,7 @@
 
     <ng-container *ngFor="let t of list | async; let i = index">
       <md-list-item> {{t.desc}}</md-list-item>
-      <md-divider *ngIf="i !== list.length  - 1"></md-divider>
+      <md-divider *ngIf="i !== listLength  - 1"></md-divider>
     </ng-container>
   </md-list>
 </form>

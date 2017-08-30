@@ -7,7 +7,7 @@ export class SharedService {
   //Update (SharedService.changeList(newList))
 
   private listArray: Array<Object> = [];
-  private listSource = new BehaviorSubject<Object>(this.listArray); //Initial array
+  private listSource = new BehaviorSubject<Array<Object>>(this.listArray); //Initial array
   public readonly list = this.listSource.asObservable();
 
   constructor() { }

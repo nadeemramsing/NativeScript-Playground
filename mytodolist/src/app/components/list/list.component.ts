@@ -12,10 +12,12 @@ import { SharedService } from './../../services/shared.service';
 export class ListComponent implements OnInit {
   /* @ViewChild('task') */
   protected task;
-  protected list: Observable<Object>;
+  protected list: Observable<Array<Object>>;
+  protected listLength: Number;
 
   constructor(private sharedService: SharedService) {
     this.list = this.sharedService.list;
+    this.list.subscribe(res => { this.listLength = res.length });
   }
 
   public addTask(desc): void {
