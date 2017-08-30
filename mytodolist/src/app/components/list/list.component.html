@@ -5,18 +5,15 @@
     <input mdInput #task placeholder="Enter task">
   </md-input-container>
 
-  <button type="button" class="add-button" md-fab (click)="addTask(task.value)"> 
+  <button type="button" class="add-button" md-fab (click)="addTask(task.value); task.value = ''"> 
       <md-icon>add</md-icon>
   </button>
 
   <md-list class="list" fxLayout="column" fxLayoutAlign="center center">
 
-    <md-list-item *ngFor="let t of list"> {{t.desc}}</md-list-item>
-
-    <md-list-item> {{task.value}} </md-list-item>
-    <md-divider></md-divider>
-    <md-list-item> Salt </md-list-item>
-    <md-divider></md-divider>
-    <md-list-item> Paprika </md-list-item>
+    <ng-container *ngFor="let t of list; let i = index">
+      <md-list-item> {{t.desc}}</md-list-item>
+      <md-divider *ngIf="i !== list.length  - 1"></md-divider>
+    </ng-container>
   </md-list>
 </form>
