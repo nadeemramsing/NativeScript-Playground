@@ -13,7 +13,7 @@ export class ListComponent implements OnInit {
   /* @ViewChild('task') */
   protected task;
   protected list: Observable<Array<Object>>;
-  protected listLength: Number;
+  protected listLength: number;
 
   constructor(private sharedService: SharedService) {
     this.list = this.sharedService.list;
@@ -29,6 +29,10 @@ export class ListComponent implements OnInit {
       this.sharedService.addTask(task);
       /* this.task.value = ""; */ //Not binded to view => initialize value directly in view
     }
+  }
+
+  public deleteTask(task): void {
+    this.sharedService.deleteTask(task);
   }
 
   ngOnInit() { }

@@ -12,9 +12,25 @@ export class SharedService {
 
   constructor() { }
 
+  private next(message) {
+    this.listSource.next(message);
+  }
+
   addTask(task: Object) {
     this.listArray.push(task);
-    this.listSource.next(this.listArray);
+    this.next(this.listArray);
+  }
+
+  deleteTask(task: Object) {
+    var t;
+    for (var i = 0; i <= this.listArray.length - 1; i++) {
+      t = this.listArray[i];
+
+      if (JSON.stringify(task) === JSON.stringify(t)) {
+        this.listArray.splice(i, 1);
+      }
+    }
+    this.next(this.listArray);
   }
 
 }

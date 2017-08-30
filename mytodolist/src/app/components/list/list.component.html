@@ -12,7 +12,14 @@
   <md-list class="list" fxLayout="column" fxLayoutAlign="start center">
 
     <ng-container *ngFor="let t of list | async; let i = index">
-      <md-list-item> {{t.desc}}</md-list-item>
+      <md-list-item class="list-item">
+        <div fxFill fxLayout="row" fxLayoutAlign="space-between center">
+          {{t.desc}}
+          <button type="button" class="delete-button" md-mini-fab (click)="deleteTask(t)"> 
+              <md-icon>delete</md-icon>
+          </button>
+        </div>
+      </md-list-item>
       <md-divider *ngIf="i !== listLength  - 1"></md-divider>
     </ng-container>
   </md-list>
