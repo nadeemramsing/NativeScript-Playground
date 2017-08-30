@@ -6,7 +6,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  @ViewChild('task')
+  /* @ViewChild('task') */
   protected task;
 
   protected list: Array<Object> = [];
@@ -18,11 +18,14 @@ export class ListComponent implements OnInit {
   }
 
   public addTask(desc): void {
-    var task = {
-      desc: desc
-    };
-    this.list.push(task);
-    /* this.task.value = ""; */ //Not binded to view => initialize value directly in view
+    if (desc) {
+
+      var task = {
+        desc: desc
+      };
+      this.list.push(task);
+      /* this.task.value = ""; */ //Not binded to view => initialize value directly in view
+    }
   }
 
   ngOnInit() { }
