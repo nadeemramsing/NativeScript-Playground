@@ -14,9 +14,8 @@
       <!-- <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle> -->
       <!-- Works in new version 2.0.0-beta.10 -->
       <button mdSuffix [mdDatepickerToggle]="date"></button>
-      <md-datepicker #date></md-datepicker>
+      <md-datepicker #date (selectedChanged)="passDate($event)"></md-datepicker>
     </md-input-container>
-
     <section>
       <md-checkbox [(ngModel)]="isDone" name="isDone">Done</md-checkbox>
     </section>

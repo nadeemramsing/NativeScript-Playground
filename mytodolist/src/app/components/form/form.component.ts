@@ -17,6 +17,10 @@ export class FormComponent implements OnInit {
 
   constructor(private sharedService: SharedService, private activatedRoute: ActivatedRoute) { }
 
+  public passDate(date) {
+    this.date = date;
+  }
+
   ngOnInit(): void {
     this.sharedService.currentTask.subscribe(res => {
       //Using SharedService, Observable and Subject
