@@ -12,7 +12,7 @@ import { SharedService } from './../../services/shared.service';
 export class ListComponent implements OnInit {
   /* @ViewChild('task') */ //Will work when two-way binded (using [(ngModel)] or (input)="task = $event.target.value")
   protected task;
-  protected list: Observable<Array<Object>>;
+  protected list: Observable<Array<any>>;
   protected listLength: number;
 
   constructor(private sharedService: SharedService, private router: Router) {
@@ -27,11 +27,11 @@ export class ListComponent implements OnInit {
     });
   }
 
-  public addTask(desc): void {
-    if (desc) {
+  public addTask(description): void {
+    if (description) {
 
       var task = {
-        desc: desc
+        description: description
       };
       this.sharedService.addTask(task);
       /* this.task.value = ""; */ //Not binded to view => initialize value directly in view
@@ -44,7 +44,7 @@ export class ListComponent implements OnInit {
 
   public editTask(task): void {
     this.deleteTask(task);
-    this.addTask(task.desc);
+    this.addTask(task.description);
   }
 
   public openTask(task): void {
@@ -53,10 +53,10 @@ export class ListComponent implements OnInit {
     this.sharedService.editCurrentTask(task);
 
     //Method 2: Using queryParams
-    this.router.navigate(['home/form'], { queryParams: { task: JSON.stringify(task) } });
+    this.router.navigate(['home/form'], { queryParams: { isEdit: true } });
   }
 
   ngOnInit() {
-    
+
   }
 }

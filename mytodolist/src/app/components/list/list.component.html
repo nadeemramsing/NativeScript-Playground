@@ -12,14 +12,14 @@
   <md-list class="list" fxLayout="column" fxLayoutAlign="start center">
 
     <ng-container *ngFor="let t of list | async; let i = index">
-      <md-list-item class="list-item" (click)="openTask(t)">
+      <md-list-item class="list-item">
         <div fxFill fxLayout="row" fxLayoutAlign="space-between center">
-          <span [hidden]="t.isEdit">
-            {{t.desc}}
+          <span [hidden]="t.isEdit" (click)="openTask(t)">
+            {{t.description}}
           </span>
 
           <md-input-container fxFlex="85" [hidden]="!t.isEdit">
-            <input mdInput [(ngModel)]="t.desc" [ngModelOptions]="{standalone: true}">
+            <input mdInput [(ngModel)]="t.description" [ngModelOptions]="{standalone: true}">
             <!-- To use [(ngModel)], MUST import FormsModule -->
             <!-- When using [(ngModel)] in form, must either
             1) set name="taskDesc" => connected to form in which it is.

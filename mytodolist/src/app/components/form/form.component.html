@@ -21,9 +21,11 @@
     </section>
   </div>
 
-  <button type="button" class="add-button" md-fab (click)="0"> 
+  <button type="button" class="add-button" *ngIf="!isEdit" md-fab (click)="0"> 
     <md-icon>add</md-icon>
   </button>
-
+  <button type="button" class="add-button" *ngIf="isEdit" md-fab (click)="editTask()"> 
+    <md-icon>edit</md-icon>
+  </button>
 
 </form>

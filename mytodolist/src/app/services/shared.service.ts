@@ -8,7 +8,7 @@ export class SharedService {
 
   private task: Object = {
     title: "",
-    desc: "",
+    description: "",
     date: new Date(),
     isDone: false
   };
@@ -16,10 +16,10 @@ export class SharedService {
   public readonly currentTask = this.taskSource.asObservable();
 
   private listArray: Array<Object> = [{
-    desc: "Rendez-vous"
+    description: "Rendez-vous"
   },
   {
-    desc: "Research on Angular4"
+    description: "Research on Angular4"
   }];
   private listSource = new BehaviorSubject<Array<Object>>(this.listArray); //Initial array
   public readonly list = this.listSource.asObservable();
@@ -35,10 +35,24 @@ export class SharedService {
     this.next(this.listArray);
   }
 
-  deleteTask(task: Object) {
-    var t;
+  deleteTask(task: any) {
+
+    if (JSON.stringify(task.isEdit))
+      delete task['isEdit'];
+
+    for (prop in task) {
+      var value = task[prop];
+
+      if (value === undefined)
+        delete task[prop];
+    }
+
+    var t, prop;
     for (var i = 0; i <= this.listArray.length - 1; i++) {
       t = this.listArray[i];
+
+      if (JSON.stringify(t.isEdit))
+        delete t['isEdit'];
 
       if (JSON.stringify(task) === JSON.stringify(t)) {
         this.listArray.splice(i, 1);
