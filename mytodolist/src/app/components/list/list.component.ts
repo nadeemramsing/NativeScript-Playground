@@ -1,13 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 
 import { SharedService } from './../../services/shared.service';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css'],
-  providers: [SharedService]
+  styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
   /* @ViewChild('task') */ //Will work when two-way binded (using [(ngModel)] or (input)="task = $event.target.value")
@@ -15,7 +15,7 @@ export class ListComponent implements OnInit {
   protected list: Observable<Array<Object>>;
   protected listLength: number;
 
-  constructor(private sharedService: SharedService) {
+  constructor(private sharedService: SharedService, private router: Router) {
     this.list = this.sharedService.list;
     this.list.subscribe(res => {
       this.listLength = res.length;
@@ -47,5 +47,16 @@ export class ListComponent implements OnInit {
     this.addTask(task.desc);
   }
 
-  ngOnInit() { }
+  public openTask(task): void {
+    //Communication bet. controllers
+    //Method 1: Using SharedService, Subject and Observable 
+    this.sharedService.editCurrentTask(task);
+
+    //Method 2: Using queryParams
+    this.router.navigate(['home/form'], { queryParams: { task: JSON.stringify(task) } });
+  }
+
+  ngOnInit() {
+    
+  }
 }

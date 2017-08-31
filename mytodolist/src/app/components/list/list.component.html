@@ -12,7 +12,7 @@
   <md-list class="list" fxLayout="column" fxLayoutAlign="start center">
 
     <ng-container *ngFor="let t of list | async; let i = index">
-      <md-list-item class="list-item">
+      <md-list-item class="list-item" (click)="openTask(t)">
         <div fxFill fxLayout="row" fxLayoutAlign="space-between center">
           <span [hidden]="t.isEdit">
             {{t.desc}}

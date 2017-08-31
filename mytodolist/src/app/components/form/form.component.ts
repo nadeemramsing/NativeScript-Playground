@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from './../../services/shared.service';
 
 @Component({
   selector: 'app-form',
@@ -11,9 +12,15 @@ export class FormComponent implements OnInit {
   protected date: Date;
   protected isDone: Boolean;
 
-  constructor() { }
+  constructor(private sharedService: SharedService) { }
 
   ngOnInit() {
+    this.sharedService.currentTask.subscribe(res => {
+      this.title = res.title;
+      this.description = res.desc;
+      this.date = res.date;
+      this.isDone = res.isDone;
+    });
   }
 
 }

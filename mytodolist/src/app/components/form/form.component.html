@@ -17,10 +17,14 @@
       <md-datepicker #date></md-datepicker>
     </md-input-container>
 
-      <section>
-        <md-checkbox [(ngModel)]="isDone" name="isDone">Done</md-checkbox>
-      </section>
+    <section>
+      <md-checkbox [(ngModel)]="isDone" name="isDone">Done</md-checkbox>
+    </section>
   </div>
+
+  <button type="button" class="add-button" md-fab (click)="0"> 
+    <md-icon>add</md-icon>
+  </button>
 
 
 </form>

@@ -6,6 +6,15 @@ export class SharedService {
   //Read (SharedService.currentList.subscribe(value => ...))
   //Update (SharedService.changeList(newList))
 
+  private task: Object = {
+    title: "",
+    desc: "",
+    date: new Date(),
+    isDone: false
+  };
+  private taskSource = new BehaviorSubject<any>(this.task);
+  public readonly currentTask = this.taskSource.asObservable();
+
   private listArray: Array<Object> = [{
     desc: "Rendez-vous"
   },
@@ -36,6 +45,10 @@ export class SharedService {
       }
     }
     this.next(this.listArray);
+  }
+
+  editCurrentTask(task: Object) {
+    this.taskSource.next(Object.assign({}, task));
   }
 
 }
