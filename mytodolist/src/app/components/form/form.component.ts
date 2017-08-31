@@ -39,9 +39,9 @@ export class FormComponent implements OnInit {
   }
 
   //View -> Controller (Method 2)
-  /* public passDate(date) {
-    this.date = date;
-  } */
+  public passDate(date) {
+    /* this.date = date; */
+  }
 
   public addTask() {
     

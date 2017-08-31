@@ -20,6 +20,7 @@
       <md-checkbox formControlName="isDone" name="isDone">Done</md-checkbox>
     </section>
   </div>
+  {{formGroup.value | json}}
 
   <button type="button" class="add-button" *ngIf="!isEdit" md-fab (click)="0"> 
     <md-icon>add</md-icon>
