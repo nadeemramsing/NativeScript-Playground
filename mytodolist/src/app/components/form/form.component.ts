@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 import { Observable } from 'rxjs/Observable';
@@ -13,7 +13,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit {
+export class FormComponent implements OnInit, OnDestroy {
 
   @ViewChild('form')
   private formRef: ElementRef;
@@ -28,6 +28,14 @@ export class FormComponent implements OnInit {
 
   protected isEdit: Boolean;
   private clone: any;
+
+  /* Subscriptions */
+  private activatedRouteSub;
+  private currentTaskSub;
+  private titleSub;
+  private descriptionSub;
+  private dateSub;
+  private isDoneSub;
 
   constructor(private sharedService: SharedService, private router: Router, private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) {
     this.formGroup = formBuilder.group({
@@ -44,7 +52,7 @@ export class FormComponent implements OnInit {
   }
 
   public addTask() {
-    
+
   }
 
   public editTask() {
@@ -63,11 +71,16 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe(params => {
+    this.activatedRouteSub = this.activatedRoute.queryParams.subscribe(params => {
       this.isEdit = params.isEdit ? JSON.parse(params.isEdit) : false;
     });
 
-    this.sharedService.currentTask.subscribe(res => {
+    this.currentTaskSub = this.sharedService.currentTask.subscribe(res => {
+      this.title = res.title;
+      this.description = res.description;
+      this.date = res.date;
+      this.isDone = res.isDone;
+
       //cloning task for deletion
       this.clone = new Object({
         title: res.title,
@@ -111,10 +124,20 @@ export class FormComponent implements OnInit {
 
     //View -> Controller (Method 1)
     //It's like watching formGroup
-    this.formGroup.get('title').valueChanges.subscribe(newTitle => { this.title = newTitle });
-    this.formGroup.get('description').valueChanges.subscribe(newDesc => { this.description = newDesc });
-    this.formGroup.get('date').valueChanges.subscribe(newDate => { this.date = newDate });
-    this.formGroup.get('isDone').valueChanges.subscribe(newValue => { this.isDone = newValue });
+    this.titleSub = this.formGroup.get('title').valueChanges.subscribe(newTitle => { this.title = newTitle });
+    this.descriptionSub = this.formGroup.get('description').valueChanges.subscribe(newDesc => { this.description = newDesc });
+    this.dateSub = this.formGroup.get('date').valueChanges.subscribe(newDate => { this.date = newDate });
+    this.isDoneSub = this.formGroup.get('isDone').valueChanges.subscribe(newValue => { this.isDone = newValue });
+  }
+
+  /* ngOnDestroy(): Cleanup just before Angular destroys the directive/component. Unsubscribe observables and detach event handlers avoid memory leaks. */
+  ngOnDestroy(): void {
+    this.activatedRouteSub.unsubscribe();
+    this.currentTaskSub.unsubscribe();
+    this.titleSub.unsubscribe();
+    this.descriptionSub.unsubscribe();
+    this.dateSub.unsubscribe();
+    this.isDoneSub.unsubscribe();
   }
 
 }
