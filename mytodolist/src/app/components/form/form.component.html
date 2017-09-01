@@ -11,9 +11,9 @@
   <div class="input-container" fxLayout="row" fxLayoutAlign="space-between center">
     <md-input-container>
       <input mdInput formControlName="date" [mdDatepicker]="dateView" placeholder="Choose a date">
-      <!-- <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle> -->
+      <md-datepicker-toggle mdSuffix [for]="dateView"></md-datepicker-toggle>
       <!-- Works in new version 2.0.0-beta.10 -->
-      <button mdSuffix [mdDatepickerToggle]="dateView"></button>
+      <!-- <button mdSuffix [mdDatepickerToggle]="dateView"></button> -->
       <md-datepicker #dateView (selectedChanged)="passDate($event)"></md-datepicker>
     </md-input-container>
     <section>
