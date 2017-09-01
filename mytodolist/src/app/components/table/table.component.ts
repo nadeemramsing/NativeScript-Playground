@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs/Rx';
-import { MdPaginator } from '@angular/material';
+
+import { MdPaginator, MdSort } from '@angular/material';
 
 @Component({
   selector: 'app-table',
@@ -11,6 +12,8 @@ import { MdPaginator } from '@angular/material';
 export class TableComponent implements OnInit {
   @ViewChild(MdPaginator)
   paginator: MdPaginator;
+  @ViewChild(MdSort)
+  sort: MdSort;
 
   displayedColumns = ['position', 'name', 'weight', 'symbol'];
   data = data;
@@ -20,7 +23,7 @@ export class TableComponent implements OnInit {
 
   ngOnInit() {
     //place here; ELSE, if in constructor, this.paginator is still undefined (not yet initialized)
-    this.dataSource = new ExampleDataSource(this.data, this.paginator);
+    this.dataSource = new ExampleDataSource(this.data, this.paginator, this.sort);
   }
 }
 
@@ -57,7 +60,7 @@ const data: Element[] = [
 export class ExampleDataSource extends DataSource<any> {
 
   //args define what to watch; change => connect() reruns.
-  constructor(private data, private paginator: MdPaginator) {
+  constructor(private data, private paginator: MdPaginator, private sort: MdSort) {
     super();
   }
 
@@ -67,6 +70,7 @@ export class ExampleDataSource extends DataSource<any> {
     const displayDataChanges = [
       this.data,
       this.paginator.page,
+      this.sort.mdSortChange
     ];
 
     //...: Spread Operator: allows us to expand an expression in places where you would expect multiple arguments (in functions) or multiple elements (in ARRAYS***)
@@ -77,12 +81,27 @@ export class ExampleDataSource extends DataSource<any> {
     const ofObservable = Observable.of(this.data); //DOES NOT WORK (unlike merge, it can only accept one args?)
 
     //map: applying a function to each item (here, we do not actually use item though)
-    return mergeObservable.map((item) => {
+    return mergeObservable.map((item: any) => {
+
       const data = this.data.slice();
 
       // Grab the page's slice of data.
       const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
-      return data.splice(startIndex, this.paginator.pageSize);
+      return data.splice(startIndex, this.paginator.pageSize).sort(function (a, b) {
+        if (item.direction === "")
+          return;
+
+        //Works for number only
+        if (typeof a[item.active] === "string") {
+          var x = a[item.active].toLowerCase();
+          var y = b[item.active].toLowerCase();
+          if (x < y) { return -1; }
+          if (x > y) { return 1; }
+          return 0;
+        }
+        else
+          return item.direction === "asc" ? a[item.active] - b[item.active] : b[item.active] - a[item.active];
+      });
     });
   }
 

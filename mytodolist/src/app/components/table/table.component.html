@@ -1,22 +1,22 @@
-<md-table #table [dataSource]="dataSource">
+<md-table #table [dataSource]="dataSource" mdSort>
 
   <ng-container mdColumnDef="position">
-    <md-header-cell *mdHeaderCellDef> No. </md-header-cell>
+    <md-header-cell *mdHeaderCellDef md-sort-header> No. </md-header-cell>
     <md-cell *mdCellDef="let element"> {{element.position}} </md-cell>
   </ng-container>
 
   <ng-container mdColumnDef="name">
-    <md-header-cell *mdHeaderCellDef> Name </md-header-cell>
+    <md-header-cell *mdHeaderCellDef md-sort-header> Name </md-header-cell>
     <md-cell *mdCellDef="let element"> {{element.name}} </md-cell>
   </ng-container>
 
   <ng-container mdColumnDef="weight">
-    <md-header-cell *mdHeaderCellDef> Weight </md-header-cell>
+    <md-header-cell *mdHeaderCellDef md-sort-header> Weight </md-header-cell>
     <md-cell *mdCellDef="let element"> {{element.weight}} </md-cell>
   </ng-container>
 
   <ng-container mdColumnDef="symbol">
-    <md-header-cell *mdHeaderCellDef> Symbol </md-header-cell>
+    <md-header-cell *mdHeaderCellDef md-sort-header> Symbol </md-header-cell>
     <md-cell *mdCellDef="let element"> {{element.symbol}} </md-cell>
   </ng-container>
 
