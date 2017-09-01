@@ -21,7 +21,9 @@ export class TableComponent implements OnInit {
 
   constructor() {
 
-    function matchNumber(num, input) {
+
+    
+    /* function matchNumber(num, input) {
       var numArray = numToArray(num);
       var inputArray = numToArray(input);
 
@@ -51,7 +53,7 @@ export class TableComponent implements OnInit {
       return JSON.stringify(arr1) === JSON.stringify(arr2)
     }
 
-    console.log(matchNumber(111101808, 1010));
+    console.log(matchNumber(111101808, 1010)); */
   }
 
   ngOnInit() {
