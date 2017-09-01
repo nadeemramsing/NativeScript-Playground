@@ -19,7 +19,40 @@ export class TableComponent implements OnInit {
   data = data;
   dataSource;
 
-  constructor() { }
+  constructor() {
+
+    function matchNumber(num, input) {
+      var numArray = numToArray(num);
+      var inputArray = numToArray(input);
+
+      if (inputArray.length > numArray.length)
+        return false;
+
+      var isMatch = false, subArray, position = 0;
+      while (true) {
+        subArray = numArray.slice(position, inputArray.length + position);
+        isMatch = isArrayEqual(inputArray, subArray);
+
+        position++;
+
+        if (isMatch || position === numArray.length - 1) {
+          return isMatch;
+        }
+      }
+    }
+
+    function numToArray(num) {
+      return num.toString().split("").map(function (n) {
+        return parseInt(n);
+      })
+    }
+
+    function isArrayEqual(arr1, arr2) {
+      return JSON.stringify(arr1) === JSON.stringify(arr2)
+    }
+
+    console.log(matchNumber(111101808, 1010));
+  }
 
   ngOnInit() {
     //place here; ELSE, if in constructor, this.paginator is still undefined (not yet initialized)
