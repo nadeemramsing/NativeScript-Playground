@@ -24,10 +24,23 @@ export class SharedService {
   private listSource = new BehaviorSubject<Array<Object>>(this.listArray); //Initial array
   public readonly list = this.listSource.asObservable();
 
-  constructor() { }
+  constructor() {
+    for (var i = 1; i < 21; i++) {
+      this.listArray.push({
+        title: "title" + i,
+        description: "description" + i,
+        date: new Date(),
+        isDone: false
+      });
+    }
+  }
 
   private next(message) {
     this.listSource.next(message);
+  }
+
+  getListSource(): BehaviorSubject<Array<Object>> {
+    return this.listSource;
   }
 
   addTask(task: Object) {

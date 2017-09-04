@@ -67,7 +67,7 @@ export class FormComponent implements OnInit, OnDestroy {
     this.sharedService.editCurrentTask(task);
 
     //Redirect to table route
-    this.router.navigate(['home/table']);
+    this.router.navigate(['home/details']);
   }
 
   ngOnInit(): void {

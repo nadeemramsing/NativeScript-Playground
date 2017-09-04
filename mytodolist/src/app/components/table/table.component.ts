@@ -117,7 +117,6 @@ export class ExampleDataSource extends DataSource<any> {
 
     //map: applying a function to each item (here, we do not actually use item though)
     return mergeObservable.map((item: any) => {
-
       const data = this.data.slice();
 
       // Grab the page's slice of data.

@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './components/list/list.component';
 import { FormComponent } from './components/form/form.component';
 import { TableComponent } from './components/table/table.component';
+import { DetailsComponent } from './components/details/details.component';
 import { HomeComponent } from './components/home/home.component';
 
 export const routes: Routes = [
@@ -14,6 +15,7 @@ export const routes: Routes = [
         path: 'home', component: HomeComponent, children: [
             { path: 'list', component: ListComponent },
             { path: 'form', component: FormComponent },
+            { path: 'details', component: DetailsComponent },
             { path: 'table', component: TableComponent }
         ]
     },

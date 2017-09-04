@@ -14,6 +14,7 @@ import { TableComponent } from './components/table/table.component';
 
 import { routes } from './app.routers';
 import { HomeComponent } from './components/home/home.component';
+import { DetailsComponent } from './components/details/details.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HomeComponent } from './components/home/home.component';
     ListComponent,
     FormComponent,
     TableComponent,
-    HomeComponent
+    HomeComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
