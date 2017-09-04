@@ -22,7 +22,7 @@ export class TableComponent implements OnInit {
   constructor() {
 
 
-    
+
     /* function matchNumber(num, input) {
       var numArray = numToArray(num);
       var inputArray = numToArray(input);
@@ -123,19 +123,22 @@ export class ExampleDataSource extends DataSource<any> {
       // Grab the page's slice of data.
       const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
       return data.splice(startIndex, this.paginator.pageSize).sort(function (a, b) {
-        if (item.direction === "")
-          return;
 
-        //Works for number only
+        //String
         if (typeof a[item.active] === "string") {
           var x = a[item.active].toLowerCase();
           var y = b[item.active].toLowerCase();
-          if (x < y) { return -1; }
-          if (x > y) { return 1; }
-          return 0;
+
+          if (item.direction === "asc")
+            return x < y ? -1 : 1;
+          else
+            return x < y ? 1 : -1;
         }
-        else
+        else {
+          //Number
           return item.direction === "asc" ? a[item.active] - b[item.active] : b[item.active] - a[item.active];
+
+        }
       });
     });
   }
