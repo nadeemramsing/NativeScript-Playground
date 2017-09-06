@@ -1,3 +1,14 @@
+@import url("~/platform.css");
+/* Import the above to apply specific styling defined in platform.android.css and platform.ios.css */
+
+/* 
+BUT why platform.css used above when platform.android.css and platform.ios.css have been defined in app?
+-> When you execute tns run, the NativeScript CLI takes the code from your app folder and places it in the native projects located in the platforms/ios and platforms/android folders. 
+-> Here the naming convention comes in: while moving files, the CLI intelligently selects .android.* and .ios.* files. 
+-> To give a specific example, the CLI moves platform.ios.css into platforms/ios and renames it to platform.css; same for platform.android.css
+*/
+
+/* No Page tag used since in NativeScript, a single <Page> UI element wraps the template of every page-level Angular component by default */
 Page {
     background-color: #8F8F8F;
     font-size: 25;

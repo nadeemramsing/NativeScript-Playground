@@ -12,6 +12,8 @@ import { Component } from "@angular/core";
     <Button text="Sign in"></Button>
     <Button text="Sign up for Groceries"></Button>
   </FlexboxLayout>
-`
+`,
+  styleUrls: ["pages/login/login-common.css", "pages/login/login.css"] /* Component-specific styling */
+  /* REMEMBER: login.android.css -> login.css (Under Android folder) */
 })
 export class AppComponent { }
