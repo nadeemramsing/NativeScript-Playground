@@ -9,8 +9,10 @@ import { Component } from "@angular/core";
     autocorrect="false" autocapitalizationType="none"></TextField>
     <TextField hint="Password" secure="true"></TextField>
     
-    <Button text="Sign in"></Button>
+    <Button text="Sign in" class="submit-button"></Button>
     <Button text="Sign up for Groceries"></Button>
+    <Image alignSelf="center" src="res://logo_login" stretch="none"></Image>
+    
   </FlexboxLayout>
 `,
   styleUrls: ["pages/login/login-common.css", "pages/login/login.css"] /* Component-specific styling */
