@@ -6,7 +6,7 @@ import { Component } from "@angular/core";
     <ActionBar title="My App" class="action-bar"></ActionBar>
     <Image src="~/images/apple.jpg"></Image>
   `,
-  /* Tilde (~) required to tell the node sass compiler to resovle the import file path relative to the node_modules directory. */
+  /* Tilde (~) required to tell the NODE SASS compiler to resovle the import file path relative to the node_modules directory. */
   styles: [`
   @keyframes spin {
     from { transform: rotate(0); } to { transform: rotate(360); }
