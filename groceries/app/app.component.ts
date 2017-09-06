@@ -6,7 +6,7 @@ import { Component } from "@angular/core";
   /* The res:// syntax tells NativeScript to use a platform-specific resource, in this case an image. Platform-specific resources go in your app's app/App_Resources folder. */
   `
   <FlexboxLayout flexDirection="column" justifyContent="space-around">
-    <TextField hint="Email Address" keyboardType="email"
+    <TextField hint="Email Address" keyboardType="email" [(ngModel)]="email"
     autocorrect="false" autocapitalizationType="none"></TextField>
     <TextField hint="Password" secure="true"></TextField>
     
@@ -20,10 +20,12 @@ import { Component } from "@angular/core";
   /* REMEMBER: login.android.css -> login.css (Under Android folder) */
 })
 export class AppComponent {
+  protected email = "nativescriptrocks@telerik.com";
 
   constructor(){}
 
   public submit() {
     console.log("submitted");
+    alert("You’re using: " + this.email); /* Opens a simple Alert Dialog */
   }
 }
