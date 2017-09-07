@@ -1,5 +1,7 @@
 @import url("~/platform.css");
+
 /* Import the above to apply specific styling defined in platform.android.css and platform.ios.css */
+
 
 /* 
 BUT why platform.css used above when platform.android.css and platform.ios.css have been defined in app?
@@ -8,13 +10,24 @@ BUT why platform.css used above when platform.android.css and platform.ios.css h
 -> To give a specific example, the CLI moves platform.ios.css into platforms/ios and renames it to platform.css; same for platform.android.css
 */
 
+
 /* No Page tag used since in NativeScript, a single <Page> UI element wraps the template of every page-level Angular component by default */
+
 Page {
     background-color: #8F8F8F;
     font-size: 25;
 }
 
-TextField, Button {
+TextField,
+Button {
     margin: 0 25%;
     font-size: 20;
+}
+
+.small-spacing {
+    margin: 5;
+}
+
+.medium-spacing {
+    margin: 10;
 }

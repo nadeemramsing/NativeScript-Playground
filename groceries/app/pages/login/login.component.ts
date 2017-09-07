@@ -17,7 +17,7 @@ import { UserService } from "../../shared/user/user.service";
 })
 
 export class LoginComponent implements OnInit {
-    @ViewChild("container") 
+    @ViewChild("container")
     container: ElementRef;
 
     protected isLoggingIn = true;
@@ -78,6 +78,8 @@ export class LoginComponent implements OnInit {
     public toggleDisplay() {
         this.isLoggingIn = !this.isLoggingIn;
         let container = <View>this.container.nativeElement;
+        /* All NativeScript UI elements inherit from a base View class, which contains a number of useful methods—including the animate(). */
+
         container.animate({
             backgroundColor: this.isLoggingIn ? new Color("white") : new Color("#301217"),
             duration: 400
