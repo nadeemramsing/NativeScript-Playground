@@ -1,5 +1,9 @@
-import { Component } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { Router } from "@angular/router";
+
+import { Page } from 'ui/page';
+import { Color } from "color";
+import { View } from "ui/core/view";
 
 import { User } from "../../shared/user/user";
 import { UserService } from "../../shared/user/user.service";
@@ -12,7 +16,10 @@ import { UserService } from "../../shared/user/user.service";
     /* REMEMBER: login.android.css -> login.css (Under Android folder) */
 })
 
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+    @ViewChild("container") 
+    container: ElementRef;
+
     protected isLoggingIn = true;
     protected user: User;
 
@@ -20,10 +27,15 @@ export class LoginComponent {
     Why not run this.userService = new UserService() in the component’s constructor and forget the complexity of @Injectable and providers?
     The short answer is a dependency-injection-based approach to coding keeps your classes LESS COUPLED, and therefore more MAINTAINABLED and TESTABLE as your application evolves over time. 
     */
-    constructor(private userService: UserService, private router: Router) {
+    constructor(private userService: UserService, private router: Router, private page: Page) {
         this.user = new User();
         this.user.email = "nadeem@gmail.com";
         this.user.password = "1234";
+    }
+
+    ngOnInit(): void {
+        this.page.backgroundImage = "res://bg_login";
+        this.page.actionBarHidden = true;
     }
 
     public submit() {
@@ -65,5 +77,10 @@ export class LoginComponent {
 
     public toggleDisplay() {
         this.isLoggingIn = !this.isLoggingIn;
+        let container = <View>this.container.nativeElement;
+        container.animate({
+            backgroundColor: this.isLoggingIn ? new Color("white") : new Color("#301217"),
+            duration: 400
+        });
     }
 }
