@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Router } from "@angular/router";
 
 import { User } from "../../shared/user/user";
 import { UserService } from "../../shared/user/user.service";
@@ -19,9 +20,9 @@ export class LoginComponent {
     Why not run this.userService = new UserService() in the component’s constructor and forget the complexity of @Injectable and providers?
     The short answer is a dependency-injection-based approach to coding keeps your classes LESS COUPLED, and therefore more MAINTAINABLED and TESTABLE as your application evolves over time. 
     */
-    constructor(private userService: UserService) {
+    constructor(private userService: UserService, private router: Router) {
         this.user = new User();
-        this.user.email = "nativescriptrocks@telerik.com";
+        this.user.email = "nadeem@gmail.com";
         this.user.password = "1234";
     }
 
@@ -34,9 +35,16 @@ export class LoginComponent {
     }
 
     public login() {
-
+        this.userService.login(this.user)
+            .subscribe(
+            (res) => {
+                this.router.navigate(["/list"])
+            },
+            (error) => alert("Unfortunately we could not find your account.")
+            );
     }
-    signUp() {
+
+    public signUp() {
         this.userService.register(this.user)
             .subscribe(
             //Success callback
