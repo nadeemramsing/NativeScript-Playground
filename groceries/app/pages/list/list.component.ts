@@ -16,6 +16,7 @@ export class ListComponent implements OnInit {
   @ViewChild("groceryTextField") groceryTextField: ElementRef;
 
   isLoading = false;
+  listLoaded = false;
 
   constructor(private groceryListService: GroceryListService) { }
 
@@ -27,6 +28,7 @@ export class ListComponent implements OnInit {
           this.groceryList.unshift(groceryObject);
         });
         this.isLoading = false;
+        this.listLoaded = true;
       });
   }
 
