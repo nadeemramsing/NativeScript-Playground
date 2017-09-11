@@ -13,10 +13,11 @@ If don’t use `declare` then TS outputs "var myLibrary: any" which will overwri
 declare var NSAttributedString: any;
 declare var NSDictionary: any;
 declare var NSForegroundColorAttributeName: any;
+/* Assigned value by JavaScript Virtual Machines (V8 or JavaScriptCore)? */
 
 export function setHintColor(args: { view: TextField, color: Color }) {
     /* NativeScript makes native objects available via a android property =>  args.view.android refers to a TextView, and therefore has the setHintTextColor() method */
-    
+
     if (args.view.android) { //runs only for android
         args.view.android.setHintTextColor(args.color.android);
     }
