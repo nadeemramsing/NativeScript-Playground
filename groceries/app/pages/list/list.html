@@ -1,10 +1,20 @@
-<GridLayout>
+<GridLayout rows="auto, *">
+    <!-- 
+    auto => takes space of its size
+    * => takes available space
+-->
+    <GridLayout row="0" columns="*, auto" class="add-bar">
+        <TextField #groceryTextField [(ngModel)]="grocery" hint="Enter a grocery item" col="0"></TextField>
+        <!-- The “#” syntax is Angular’s way of creating local template variables -->
+        <Image src="res://add"  (tap)="add()"  col="1"></Image>
+    </GridLayout>
+
+
     <!-- ListView uses *ngFor internally? -->
-    <ListView [items]="groceryList" class="small-spacing">
-        <!-- ng-template required by ListView -->
+    <ListView [items]="groceryList" row="1" class="small-spacing">
         <ng-template let-item="item">
-            <!-- let-item="fruit" and [text]="fruit.name" does not work; all should be "item"! -->
             <Label [text]="item.name" class="medium-spacing"></Label>
         </ng-template>
     </ListView>
+
 </GridLayout>
