@@ -19,10 +19,10 @@
 
     <ListView [items]="groceryList" row="1" class="small-spacing" [ngClass]="{'visible': listLoaded}">
         <!-- Can use ngClass as well -->
-        <ng-template let-item="item">
+        <ng-template let-item="item" let-index="index"><!-- let-i not working (let-index WORKS) -->
             <FlexboxLayout flexDirection="row" justifyContent="space-between" alignItems="center">
                 <Label [text]="item.name" class="medium-spacing"></Label>
-                <Image src="res://delete" stretch="none"></Image>
+                <Image src="res://delete" stretch="none" (tap)="delete(item.id, index)"></Image>
             </FlexboxLayout>
         </ng-template>
     </ListView>
