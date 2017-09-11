@@ -11,7 +11,10 @@
 
 
     <!-- ListView uses *ngFor internally? -->
-    <ListView [items]="groceryList" row="1" class="small-spacing" [class.visible]="listLoaded">
+    <!-- <ListView [items]="groceryList" row="1" class="small-spacing" [class.visible]="listLoaded"> -->
+
+    <ListView [items]="groceryList" row="1" class="small-spacing" [ngClass]="{'visible': listLoaded}">
+        <!-- Can use ngClass as well -->
         <ng-template let-item="item">
             <Label [text]="item.name" class="medium-spacing"></Label>
         </ng-template>
