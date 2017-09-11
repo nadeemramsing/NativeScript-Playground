@@ -4,6 +4,9 @@ import { TextField } from "ui/text-field";
 import { Grocery } from "../../shared/grocery/grocery";
 import { GroceryListService } from "../../shared/grocery/grocery-list.service";
 
+import * as SocialShare from "nativescript-social-share";
+/* NativeScript plugins: npm modules that can access native code and use Android and iOS SDKs, if required */
+
 @Component({
   selector: "list",
   templateUrl: "pages/list/list.html",
@@ -56,5 +59,13 @@ export class ListComponent implements OnInit {
         this.grocery = "";
       }
       )
+  }
+
+  public share() {
+    let listString = this.groceryList
+      .map(grocery => grocery.name)
+      .join(", ")
+      .trim();
+    SocialShare.shareText(listString);
   }
 }

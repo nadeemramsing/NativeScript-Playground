@@ -6,6 +6,8 @@ The NativeScript framework's require() method is configured to look at the "main
 -> You could also type require("email-validator/index") to retrieve the same file.
 */
 
+/* Supported npm modules: https://github.com/NativeScript/NativeScript/wiki/supported-npm-modules */
+
 export class User {
   email: string;
   password: string;
