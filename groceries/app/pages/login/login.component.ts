@@ -39,7 +39,11 @@ export class LoginComponent implements OnInit {
     }
 
     public submit() {
-        if (this.isLoggingIn) {
+        if (!this.user.isValidEmail()) {
+            alert("Enter a valid email address.");
+            return;
+            
+        } if (this.isLoggingIn) {
             this.login();
         } else {
             this.signUp();
