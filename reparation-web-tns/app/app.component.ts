@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Page } from 'ui/page';
 
+/* Cause of "Can't resolve all parameters for AppComponent": Page does not have @Injectable decorator it seems */
 @Component({
   template: `
   <page-outlet></page-outlet>
