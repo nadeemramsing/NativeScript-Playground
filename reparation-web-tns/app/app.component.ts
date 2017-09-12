@@ -3,7 +3,7 @@ import { Page } from 'ui/page';
 
 @Component({
   template: `
-  <outlet></outlet>
+  <page-outlet></page-outlet>
   `
 })
 export class AppComponent implements OnInit {
