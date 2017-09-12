@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var outlet_component_1 = require("./pages/outlet/outlet.component");
+/* For more info: https://docs.nativescript.org/core-concepts/angular-navigation#page-router-outlet */
+exports.routes = [
+    { path: "", component: outlet_component_1.OutletComponent }
+];
+exports.navigatableComponents = [
+    outlet_component_1.OutletComponent
+];
+/* Instead of putting them one by one in Module's declarations (ES6's spread operator used) */ 
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXBwLnJvdXRlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbImFwcC5yb3V0ZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxvRUFBaUU7QUFFakUsc0dBQXNHO0FBQ3pGLFFBQUEsTUFBTSxHQUFHO0lBQ2xCLEVBQUUsSUFBSSxFQUFFLEVBQUUsRUFBRSxTQUFTLEVBQUUsa0NBQWUsRUFBRTtDQUMzQyxDQUFDO0FBRVcsUUFBQSxxQkFBcUIsR0FBRztJQUNqQyxrQ0FBZTtDQUNsQixDQUFDO0FBQ0YsOEZBQThGIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgT3V0bGV0Q29tcG9uZW50IH0gZnJvbSBcIi4vcGFnZXMvb3V0bGV0L291dGxldC5jb21wb25lbnRcIlxyXG5cclxuLyogRm9yIG1vcmUgaW5mbzogaHR0cHM6Ly9kb2NzLm5hdGl2ZXNjcmlwdC5vcmcvY29yZS1jb25jZXB0cy9hbmd1bGFyLW5hdmlnYXRpb24jcGFnZS1yb3V0ZXItb3V0bGV0ICovXHJcbmV4cG9ydCBjb25zdCByb3V0ZXMgPSBbXHJcbiAgICB7IHBhdGg6IFwiXCIsIGNvbXBvbmVudDogT3V0bGV0Q29tcG9uZW50IH1cclxuXTtcclxuXHJcbmV4cG9ydCBjb25zdCBuYXZpZ2F0YWJsZUNvbXBvbmVudHMgPSBbXHJcbiAgICBPdXRsZXRDb21wb25lbnRcclxuXTtcclxuLyogSW5zdGVhZCBvZiBwdXR0aW5nIHRoZW0gb25lIGJ5IG9uZSBpbiBNb2R1bGUncyBkZWNsYXJhdGlvbnMgKEVTNidzIHNwcmVhZCBvcGVyYXRvciB1c2VkKSAqLyJdfQ==
