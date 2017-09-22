@@ -16,7 +16,6 @@ export class FicheHistoryComponent implements OnInit {
         this.userService.getUsers().subscribe(
             (res) => {
                 this.users = res;
-                console.log(this.users);
             },
             (err) => {
                 console.log(err);
