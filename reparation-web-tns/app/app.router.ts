@@ -14,7 +14,7 @@ export const routes = [
             { path: "new-fiche", component: NewFicheComponent }
         ]
     },
-    { path: "", redirectTo: "/root/login", pathMatch: "full" }
+    { path: "", redirectTo: "/root/fiche-history", pathMatch: "full" }
 ];
 
 export const navigatableComponents = [

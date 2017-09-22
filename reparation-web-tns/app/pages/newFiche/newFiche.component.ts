@@ -2,9 +2,7 @@ import { Component, OnInit } from "@angular/core";
 
 @Component({
     selector: "new-fiche",
-    template: `
-    <Label text="This is NewFicheComponent."></Label>
-    `
+    templateUrl: 'pages/newFiche/newFiche.html'
 })
 
 export class NewFicheComponent implements OnInit {

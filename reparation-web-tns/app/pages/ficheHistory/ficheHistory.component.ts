@@ -2,9 +2,7 @@ import { Component, OnInit } from "@angular/core";
 
 @Component({
     selector: "login",
-    template: `
-    <Label text="This is FicheHistoryComponent."></Label>
-    `
+    templateUrl: 'pages/ficheHistory/ficheHistory.html' //Path relative to "app" folder
 })
 
 export class FicheHistoryComponent implements OnInit {
