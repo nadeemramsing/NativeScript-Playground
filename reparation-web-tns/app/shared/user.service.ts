@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Http, Response } from "@angular/http";
 import { Observable } from 'rxjs/Observable';
 /* import { Observable } from 'rxjs/Rx'; */
@@ -10,13 +10,19 @@ import { Config } from "./app.config";
 import { HeaderService } from "./headers.service";
 
 @Injectable()
-export class UserService {
+export class UserService implements OnInit {
     private headers;
 
     constructor(private http: Http, headerService: HeaderService) {
         this.headers = headerService.getHeaders();
     }
 
+    ngOnInit() {
+        console.log("ngOnInit");
+        //Lifecycle hooks, like OnInit() work with Directives and Components. They do NOT work with Services.
+    }
+
+    //Function Declarations
     public getUsers = getUsers;
 }
 
@@ -26,3 +32,5 @@ function getUsers() {
         /* .do(res => res) */
         ;
 }
+
+console.log("0", this.headers); //this has not yet been initialized here => undefined
