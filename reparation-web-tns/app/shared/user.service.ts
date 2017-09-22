@@ -17,10 +17,12 @@ export class UserService {
         this.headers = headerService.getHeaders();
     }
 
-    public getUsers() {
-        return this.http.get(Config.BASEURL + "users", { headers: this.headers })
-            .map(res => res.json()) //Needed; ELSE error!
-            /* .do(res => res) */
-            ;
-    }
+    public getUsers = getUsers;
+}
+
+function getUsers() {
+    return this.http.get(Config.BASEURL + "users", { headers: this.headers })
+        .map(res => res.json()) //Needed; ELSE error!
+        /* .do(res => res) */
+        ;
 }
