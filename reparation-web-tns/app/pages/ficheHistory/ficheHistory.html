@@ -1,1 +1,5 @@
-<Label text="This is FicheHistoryComponent."></Label>
+<ListView [items]="users">
+    <ng-template let-user="item">
+        <Label [text]="user.NAME"></Label>
+    </ng-template>
+</ListView>
